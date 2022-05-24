@@ -1,5 +1,6 @@
 const axios = require("axios")
 const mongoose = require("mongoose")
+const User = require('./schema');
 function get_contest(para, message){
 
     axios.get(`https://codeforces.com/api/user.rating?handle=${para}`)

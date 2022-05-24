@@ -6,9 +6,9 @@ const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const mongoose = require('mongoose');
 const User = require('./schema');
 const app = express()
+const get_contests = require("./get_contests")
 const add_new_user = require("./add_new_user")
-const get_user_detail = require("./get_user_detail").default
-const get_contests = require("./get_contests").default
+const get_user_detail = require("./get_user_detail")
 const auto_contest = require("./auto_contest")
 const rating_alert = require("./rating_alert")
 const delete_user = require("./delete_user")
@@ -17,7 +17,7 @@ client.login(process.env.DISCORDJS_BOT_TOKEN)
 
 mongoose
   .connect(
-    `mongodb+srv://wayward_blu:7877967934@cluster0.lbi98.mongodb.net/discord_bot?retryWrites=true&w=majority`
+    `mongodb+srv://wayward_blu:${process.env.PASSWORD}@cluster0.lbi98.mongodb.net/discord_bot?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);

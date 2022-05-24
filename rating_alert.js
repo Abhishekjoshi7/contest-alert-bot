@@ -36,7 +36,7 @@ const rating_alert= async(message)=>{
             } 
         }
         embed = new MessageEmbed()
-        .setTitle("Constests")
+        .setTitle("Rating Changes")
         .setDescription(`${result}`)
         .setColor("BLURPLE")
         .setURL(`https://codeforces.com/contests`)

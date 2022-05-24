@@ -1,4 +1,4 @@
-const get_contest = require("./get_contest").default
+const get_contest = require("./get_contest")
 const mongoose = require("mongoose")
 const User = require('./schema');
 const add_new_user =async (message, args) => {
