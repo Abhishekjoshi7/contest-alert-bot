@@ -6,6 +6,8 @@ const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const mongoose = require('mongoose');
 const User = require('./schema');
 const app = express()
+const lc_user_detail = require("./lc_user_detail")
+const  useQuery = ( "react-query");
 const get_contests = require("./get_contests")
 const add_new_user = require("./add_new_user")
 const get_user_detail = require("./get_user_detail")
@@ -38,7 +40,13 @@ client.on('messageCreate', async (message) =>
     if(message.content.startsWith(PREFIX)){
         const [CMD_NAME, ...args] = message.content.trim().substring(PREFIX.length).split(/\s+/)
         if(CMD_NAME === 'user') {
-            get_user_detail(message, args)
+            if(args[0] === "lc"){
+                lc_user_detail(message, args)
+            }
+            else
+            {
+                get_user_detail(message, args)
+            }
         }
         else if(CMD_NAME === 'contest'){
            get_contests(message)
