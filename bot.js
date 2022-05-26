@@ -22,7 +22,7 @@ mongoose
     `mongodb+srv://wayward_blu:${process.env.PASSWORD}@cluster0.lbi98.mongodb.net/discord_bot?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT|| 5000);
   })
   .catch(err => {
     console.log(err);
